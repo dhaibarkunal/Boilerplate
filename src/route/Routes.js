@@ -1,9 +1,10 @@
 import { Suspense, lazy } from "react";
 import { useRoutes } from "react-router-dom";
+import React from "react";
 import AuthGuard from "./AuthGuard";
 
 //views
-const App = lazy(() => import("../App"));
+const Dashboard = lazy(() => import("../pages/Dashboard"));
 
 function Routes() {
   const views = useRoutes([
@@ -19,7 +20,7 @@ function Routes() {
     },
     {
       path: "/dashboard",
-      element: <App />,
+      element: <Dashboard />,
       children: [
         {
           path: "blogs",

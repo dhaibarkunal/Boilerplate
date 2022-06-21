@@ -1,11 +1,8 @@
-import { Outlet } from "react-router-dom";
+import React from "react";
+import Routes from "./route/Routes";
 
 function App() {
-  return (
-    <div>
-      Dashboard page - <Outlet/>
-    </div>
-  );
+  return <Routes />;
 }
 
-export default App;
+export default React.memo(App);

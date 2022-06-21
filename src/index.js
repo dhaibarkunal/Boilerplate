@@ -1,18 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
+import { Provider as ReduxProvider } from "react-redux";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Routes from "./route/Routes";
+
+import "./index.css";
+
+import App from "./App";
+import store from "./redux/store";
+import reportWebVitals from "./reportWebVitals";
 
 const history = createBrowserHistory({ window });
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <HistoryRouter history={history}>
-      <Routes />
-    </HistoryRouter>
+    <ReduxProvider store={store}>
+      <HistoryRouter history={history}>
+        <App />
+      </HistoryRouter>
+    </ReduxProvider>
   </React.StrictMode>
 );
 
